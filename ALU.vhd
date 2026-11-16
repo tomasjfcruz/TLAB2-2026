@@ -7,9 +7,7 @@ port(
 	X : in std_logic_vector(3 downto 0);
 	Y : in std_logic_vector(3 downto 0);
 	CBi : in std_logic;
-	OP0 : in std_logic;
-	OP1 : in std_logic;
-	OP2 : in std_logic;
+	OP : in std_logic_vector(2 downto 0);
 -- Output ports
 	R : out std_logic_vector(3 downto 0);
 	BE : out std_logic;
@@ -37,9 +35,7 @@ component DecodeOP is
     port
 	(
 	--input ports
-	OP0 : in std_logic;
-	OP1 : in std_logic;
-	OP2 : in std_logic;
+	OP : in std_logic_vector(2 downto 0);
 	--output ports
 	OPA : out std_logic;
 	OPB : out std_logic;
@@ -126,9 +122,7 @@ UXor0: Xor0 port map(
 		);
 		
 UDecodeOP: DecodeOP port map(
-	OP0 => OP0,
-	OP1 => OP1,
-	OP2 => OP2,
+	OP => OP,  --OP(0) => OP(0) ; OP(1) => OP(1) ; OP(2) => OP(2)	
 	OPA => OPA_int,
 	OPB => OPB_int,
 	OPC => OPC_int,
